@@ -3,8 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhuke</groupId>
     <artifactId>com.zhuke</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>annotation</module>
+    </modules>
     <name>com.zhuke Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>

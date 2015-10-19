@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/fucong.iml" filepath="$PROJECT_DIR$/fucong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.zhuke.iml" filepath="$PROJECT_DIR$/com.zhuke.iml" />
     </modules>
   </component>
 </project>
