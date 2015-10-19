@@ -1,5 +1,6 @@
 package com.zhuke.controller;
 
+import com.zhuke.auth.AuthPassport;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,15 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping(value = "/helloworld")
-public class HelloWorldController {
+public class HelloWorldController  {
 
+    //@AuthPassport
     @RequestMapping(value = "/index", method = {RequestMethod.GET})
-    public ModelAndView index() {
+    public ModelAndView index() throws RuntimeException{
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("message", "Hello World!");
         modelAndView.setViewName("haha");
-        return modelAndView;
+        throw new RuntimeException("sunny day");
+        //return modelAndView;
     }
 
 
