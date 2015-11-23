@@ -7,28 +7,51 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <!--<context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <context:component-scan base-package="com.zhuke.springjdbc.controller"/>
     <context:component-scan base-package="com.zhuke.springjdbc.service"/>
     <context:component-scan base-package="com.zhuke.springjdbc.dao"/>
-    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource"/>-->
 
-    <!-- <rabbit:connection-factory id="connectionFactory"/>
-     <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="myExchange"
-                      routing-key="foo.bar"/>
-     <rabbit:admin connection-factory="connectionFactory"/>
-     <rabbit:queue name="myQueue"/>
-     <rabbit:topic-exchange name="myExchange">
-         <rabbit:bindings>
-             <rabbit:binding queue="myQueue" pattern="foo.*"/>
-         </rabbit:bindings>
-     </rabbit:topic-exchange>
-     <rabbit:listener-container connection-factory="connectionFactory">
-         <rabbit:listener ref="foo" method="listen" queue-names="myQueue"/>
-     </rabbit:listener-container>
-     <bean id="foo" class="com.zhuke.mq.Main"/>-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
+
+    <!--<rabbit:connection-factory id="connectionFactory"/>
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="myExchange"
+                     routing-key="foo.bar"/>
+    <rabbit:admin connection-factory="connectionFactory"/>
+    <rabbit:queue name="myQueue"/>
+    <rabbit:topic-exchange name="myExchange">
+        <rabbit:bindings>
+            <rabbit:binding queue="myQueue" pattern="foo.*"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref="foo" method="listen" queue-names="myQueue"/>
+    </rabbit:listener-container>
+    <bean id="foo" class="com.zhuke.mq.Main"/>-->
+    <!-- 启用spring mvc 注解 -->
+    <context:annotation-config/>
+
+    <!-- 设置使用注解的类所在的jar包 -->
+    <context:component-scan base-package="com.zhuke"/>
+
+    <!-- 完成请求和注解POJO的映射 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    　　
+    <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="suffix" value=".jsp"/>
+        <property name="prefix" value="/WEB-INF/jsps/"/>
+    </bean>
     <bean class="com.zhuke.springjdbc.bean.Person" id="person">
         <property name="age" value="22"/>
         <property name="name" value="zhuke"/>
+    </bean>
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>classpath:layout.xml</value>
+            </list>
+        </property>
     </bean>
 </beans>
