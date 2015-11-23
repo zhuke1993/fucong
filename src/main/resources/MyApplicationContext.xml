@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <!--<context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:component-scan base-package="com.zhuke.springjdbc.controller"/>
+    <context:component-scan base-package="com.zhuke.springjdbc.service"/>
+    <context:component-scan base-package="com.zhuke.springjdbc.dao"/>
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource"/>-->
+
+    <!-- <rabbit:connection-factory id="connectionFactory"/>
+     <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="myExchange"
+                      routing-key="foo.bar"/>
+     <rabbit:admin connection-factory="connectionFactory"/>
+     <rabbit:queue name="myQueue"/>
+     <rabbit:topic-exchange name="myExchange">
+         <rabbit:bindings>
+             <rabbit:binding queue="myQueue" pattern="foo.*"/>
+         </rabbit:bindings>
+     </rabbit:topic-exchange>
+     <rabbit:listener-container connection-factory="connectionFactory">
+         <rabbit:listener ref="foo" method="listen" queue-names="myQueue"/>
+     </rabbit:listener-container>
+     <bean id="foo" class="com.zhuke.mq.Main"/>-->
+    <bean class="com.zhuke.springjdbc.bean.Person" id="person">
+        <property name="age" value="22"/>
+        <property name="name" value="zhuke"/>
+    </bean>
+</beans>
